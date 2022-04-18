@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Come To My Party!{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <div id="welcome">
+        <h2>Welcome</h2>
+        <p>I'm having a party! I'd love for you to come!</p>
+      </div>
+
+      <div id="afterparty">
+        <h2>Afterparty</h2>
+        <p>
+          Let's find a concert or something to go to after the party. Help
+          me organize this!
+        </p>
+
+        <p>
+          <a class="btn btn-primary" href="/afterparty">
+            Click here to search for an event
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="col">
+      <img src="/static/img/cupcake.png" alt="Cupcake">
+    </div>
+  </div>
+</div>
+{% endblock %}

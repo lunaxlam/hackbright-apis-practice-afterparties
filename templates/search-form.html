@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Find Afterparties{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Search for Afterparties</h2>
+
+      <form method="GET" action="/afterparty/search">
+        <div class="row">
+          <label class="form-label above" for="search-keyword">Search Keyword</label>
+          <small class="form-text text-muted">
+            Leave this blank to get all events!
+          </small>
+
+          <input
+            id="search-keyword"
+            class="form-control"
+            type="text"
+            name="keyword"
+          >
+        </div>
+
+        <div class="row">
+          <label class="form-label above" for="search-zip">Zip Code</label>
+
+          <input
+            id="search-zip"
+            class="form-control"
+            type="text"
+            name="zipcode"
+          >
+        </div>
+
+        <div class="row">
+          <label class="form-label above" for="search-radius">Distance Radius</label>
+          <small class="form-text text-muted">
+            How far to search from your location?
+          </small>
+
+          <div class="col-8">
+              <input
+                id="search-radius"
+                class="form-control"
+                type="number"
+                name="radius"
+              >
+            </div>
+
+            <div class="col-3 offset-1">
+              <select class="form-control form-select" name="unit">
+                <option value="miles">miles</option>
+                <option value="km">kilometers</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="row">
+          <label class="above" for="search-sort-by">Sort by</label>
+
+          <select
+            id="search-sort-by"
+            class="form-control form-select"
+            name="sort"
+          >
+            <option value="date,asc">Date</option>
+            <option value="relevance,asc">Relevance</option>
+          </select>
+        </div>
+        <div class="row mt-4">
+          <div class="col-3">
+            <input type="submit" value="Look for events!" class="btn btn-primary">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
