@@ -8,14 +8,14 @@
   <div class="row">
     <div class="col">
       {# TODO: Replace EVENT NAME with the event's name #}
-      <h2>EVENT NAME</h2>
+      <h2>{{ event["name"] }}</h2>
 
       {#
         TODO: Replace THIS PAGE IS FOR FURTHER STUDY with
         event's description
       #}
       <p>
-        THIS PAGE IS FOR FURTHER STUDY.
+        {{ event["info"] }}
       </p>
     </div>
   </div>
@@ -26,14 +26,14 @@
         TODO: Replace EVENT IMAGE URL with actual URL to one of the
         event images
       #}
-      <img src="EVENT IMAGE URL">
+      <img src="{{ event['images'][0]['url'] }}">
 
       <p>
         {#
           TODO: Replace EVENT TICKETMASTER URL with URL to event's
           Ticketmaster page
         #}
-        <a href="EVENT TICKETMASTER URL" target="_blank">
+        <a href="{{ event['url'] }}" target="_blank">
           Go to Ticketmaster page
         </a>
       </p>
@@ -42,7 +42,7 @@
     <div class="col">
       <h3>Start date</h3>
       {# TODO: Replace EVENT START DATE with event's start date #}
-      <p>EVENT START DATE</p>
+      <p>{{ event["dates"]["start"]["localDate"] }}</p>
 
       <h3>Venues</h3>
       <ul>
@@ -52,7 +52,9 @@
 
           Each `li` should contain the name of a venue.
         #}
-        <li>PLACEHOLDER</li>
+        {% for venue in venues %}
+        <li>{{ venue["name"] }}</li>
+        {% endfor %}
       </ul>
 
       <h3>Classifications</h3>
@@ -63,7 +65,9 @@
 
           Each `li` should contain the name of the classification's *genre*.
         #}
-        <li>PLACEHOLDER</li>
+        {% for classification in classifications  %}
+        <li>{{ classification["genre"]["name"] }}</li>
+        {% endfor %}
       </ul>
     </div>
   </div>
